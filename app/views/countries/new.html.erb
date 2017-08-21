@@ -1,0 +1,25 @@
+<%= form_for :country, url: countries_path do |f| %>
+
+  <% if @country.errors.any? %>
+    <div class="form-group">
+      <div class="alert alert-danger  alert-dismissable">
+        <strong><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved!</strong>
+        <ul>
+          <% @country.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+
+<% end %>

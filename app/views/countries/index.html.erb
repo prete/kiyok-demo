@@ -1,0 +1,11 @@
+<h1>Countries listing</h1>
+ 
+<ul class="list-group">
+  <% @countries.each do |country| %>
+    <li class="list-group-item"><%= country.name %> 
+        <%= link_to raw('Show&nbsp;<i class="fa fa-fw fa-globe"></i>'), country_path(country), { :class=>"btn btn-xs btn-success" } %>
+        <%= link_to raw('Edit&nbsp;<i class="fa fa-fw fa-edit"></i>'), edit_country_path(country), { :class=>"btn btn-xs btn-primary" } %>
+        <%= link_to raw('Delete&nbsp;<i class="fa fa-fw fa-trash"></i>'), country_path(country), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-xs btn-danger"%>
+    </li>
+  <% end %>
+</ul> 
