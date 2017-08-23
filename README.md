@@ -1,9 +1,10 @@
 # Kiyok demo
 
-## Configuracion de ambiente (1:30 hs)
+## Configuracion de ambiente (01:30 hs)
 - [x] VM Ubuntu
 - [x] Ruby & Rails (https://github.com/rvm/ubuntu_rvm)
 - [x] MySQL
+
  `sudo apt-get update`
  `sudo apt-get install mysql-server`
  `sudo mysql_secure_installation`
@@ -12,15 +13,17 @@
  `sudo phpenmod mbstring`
  `sudo systemctl restart apache2`
 
-## Desarrollo
+## Desarrollo  (~02:00hs)
 - [x] Crear repo/proyecto
+
  `git clone https://github.com/prete/kiyok-demo.git`
 - [x] Crear una nueva Aplicacion "Kiyok"
- `rails new .`
+
+`rails new .`
  `sudo apt-get install libmysqlclient-dev`
  `gem install mysql2`
  `Gemfile > gem 'mysql2'`
-- [x] Crear CRUD paises (countries) (30min)
+- [x] Crear CRUD paises (countries)
     - [x] Crear pais
     - [x] Borrar pais
     - [ ] Modificar pais
@@ -28,4 +31,4 @@
     - [x] Crear provincia
     - [x] Borrar provincia
     - [ ] Modificar provincia
-- [~] Popup/Dialog alta de alta de pais desde provincias.
+- [ ] Popup/Dialog alta de alta de pais desde provincias.
