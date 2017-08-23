@@ -1,11 +1,16 @@
 <h1>Countries listing</h1>
  
+<% if @countries.length == 0 %>
+  <div class="alert alert-info">
+    <strong>There are no countries yet, why don't you <%= render 'add_button', title: 'add', country: Country.new %> one?</strong>
+  </div>  
+<% else %>
+  <%= render 'countries/add_button', title: 'add country', country: Country.new %>
+<% end %>
+
 <ul class="list-group">
   <% @countries.each do |country| %>
-    <li class="list-group-item"><%= country.name %> 
-        <%= link_to raw('Show&nbsp;<i class="fa fa-fw fa-globe"></i>'), country_path(country), { :class=>"btn btn-xs btn-success" } %>
-        <%= link_to raw('Edit&nbsp;<i class="fa fa-fw fa-edit"></i>'), edit_country_path(country), { :class=>"btn btn-xs btn-primary" } %>
-        <%= link_to raw('Delete&nbsp;<i class="fa fa-fw fa-trash"></i>'), country_path(country), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-xs btn-danger"%>
-    </li>
+    <%= render 'countries/item', country: country %>    
   <% end %>
-</ul> 
+</ul>
+

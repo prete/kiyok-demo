@@ -1,0 +1,18 @@
+<h1>Provinces listing</h1>
+ 
+<% if @provinces.length == 0 %>
+  <div class="alert alert-info">
+    <strong>There are no provinces yet, why don't you 
+    <%= render 'provinces/add_button', title: "add a province", province: Province.new %> or <%= render 'countries/add_button', title: "add a country", country: Country.new %>?</strong>
+  </div>  
+<% else %>
+  <%= render 'countries/add_button', title: 'add country', country: Country.new %>
+  <%= render 'provinces/add_button', title: 'add province', province: Province.new %>
+<% end %>
+
+<ul class="list-group">
+  <% @provinces.each do |province| %>
+    <%= render 'provinces/item', province: province %>    
+  <% end %>
+</ul>
+

@@ -1,0 +1,12 @@
+<%= link_to raw('<i class="fa fa-fw fa-plus"></i>&nbsp;')+title, '#', :class => "btn btn-primary", data: {toggle: "modal", target: "#new-country-modal"} %>
+<div class="modal fade" id="new-country-modal" title="new country" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">New Country</h4>
+        </div>      
+        <%= render 'countries/form'%>
+    </div>
+  </div>
+</div>

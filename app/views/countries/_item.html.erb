@@ -1,0 +1,5 @@
+<li class="list-group-item"><%= country.name %> 
+    <%= link_to raw('show&nbsp;<i class="fa fa-fw fa-globe"></i>'), country_path(country), :class=>"btn btn-xs btn-success" %>
+    <%= link_to raw('edit&nbsp;<i class="fa fa-fw fa-edit"></i>'), edit_country_path(country), :class=>"btn btn-xs btn-primary" %>
+    <%= link_to raw('delete&nbsp;<i class="fa fa-fw fa-trash"></i>'), country_path(country), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-xs btn-danger"%>
+</li>

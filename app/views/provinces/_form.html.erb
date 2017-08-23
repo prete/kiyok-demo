@@ -1,0 +1,42 @@
+
+<% if @province.nil? %>
+    <% @province = Province.new %>
+<% end %>
+
+<%= form_for @province do |f| %>
+<div class="modal-body">
+    <% if @province.errors.any? %>
+    <div class="form-group">
+        <div class="alert alert-danger  alert-dismissable">
+            <strong><%= pluralize(@province.errors.count, "error") %> prohibited this province from being saved!</strong>
+            <ul>
+            <% @province.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    </div>
+    <% end %>
+    <div class="form-group">
+    <%= f.label 'Country' %>
+    <%if @country.nil?%>
+        <%= f.select :country_id, class: "form-control" do %>
+            <% @countries.each do |c| -%>
+                <%= content_tag(:option, c.name, value: c.id) %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <%= f.label @country.name %>
+    <% end %>
+
+    </div>
+    <div class="form-group">
+        <%= f.label 'Name' %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Porvince name" %>
+    </div>
+</div>
+<div class="modal-footer">
+    <button aria-hidden="true" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <%= f.submit class: "btn btn-success" %>
+</div>
+<% end %>
