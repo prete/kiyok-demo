@@ -1,0 +1,8 @@
+<tr>
+    <td><%= province.name %></td>
+    <td><%= province.country.name %> </td>
+    <td class="text-center" style="width:20%">
+        <%= link_to raw('edit&nbsp;<i class="fa fa-fw fa-edit"></i>'), edit_province_path(province), :class=>"btn btn-xs btn-primary" %>
+        <%= link_to raw('delete&nbsp;<i class="fa fa-fw fa-trash"></i>'), province_path(province), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class=>"btn btn-xs btn-danger"%>
+    </td>
+</tr>

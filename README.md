@@ -13,7 +13,7 @@
  `sudo phpenmod mbstring`
  `sudo systemctl restart apache2`
 
-## Desarrollo  (~02:00hs)
+## Desarrollo  (~03:00hs)
 - [x] Crear repo/proyecto
 
  `git clone https://github.com/prete/kiyok-demo.git`
@@ -31,4 +31,4 @@
     - [x] Crear provincia
     - [x] Borrar provincia
     - [ ] Modificar provincia
-- [ ] Popup/Dialog alta de alta de pais desde provincias.
+- [x] Popup/Dialog alta de alta de pais desde provincias.

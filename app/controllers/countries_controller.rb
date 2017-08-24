@@ -9,17 +9,21 @@ class CountriesController < ApplicationController
     end
     
     def show
+      @countries = Country.all
       @country = Country.find(params[:id])
     end
   
     def create
         @country = Country.new(country_params)
-    
-        if @country.save
-          redirect_to @country
+        @province = Province.new
+        
+        if @country.save && params[:redirect]=="1"
+          redirect_to countries_path
         else
-          render "_form"
-        end
+          respond_to do |format|  
+            format.js { render 'countries/create_result'}
+          end
+        end  
     end
   
     def edit
@@ -37,6 +41,7 @@ class CountriesController < ApplicationController
       redirect_to countries_path
     end
 
+    
     private
       def country_params
           params.require(:country).permit(:name)

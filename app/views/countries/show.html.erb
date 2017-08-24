@@ -8,13 +8,7 @@
   </div>  
 <% else %>
   <%= render 'provinces/add_button', title: 'add province' %>
+  <%= render 'provinces/table', provinces: @country.provinces %>
 <% end %>
-
-<ul class="list-group">
-  <% @country.provinces.each do |province| %>
-    <%= render 'province/item', province: province %>    
-  <% end %>
-</ul>
-
 
 <p><a class="btn btn-xs btn-primary" href="/countries" role="button">Go back to countries listing&nbsp;<i class="fa fa-fw fa-arrow-left"></i></a></p>

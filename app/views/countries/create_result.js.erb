@@ -1,0 +1,7 @@
+<% if @country.errors.any? %>
+    $("#validate-country-errors").html('<div class="alert alert-danger  alert-dismissable"><strong><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved!</strong><ul><% @country.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul></div>');
+<%else%>
+    $("#new-country-modal").modal("hide");
+    $('#notification-message').html("Country <%= @country.name %> created");
+    $('#notification-dialog').modal("show");
+<% end %>

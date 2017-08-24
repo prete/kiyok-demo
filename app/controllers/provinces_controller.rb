@@ -14,25 +14,33 @@ class ProvincesController < ApplicationController
       @country = Country.find(@province.country_id)
     end
 
+    def update
+      @province = Province.update(params[:id], province_params)
+      @country = Country.find(@province.country_id)
+    end
+
     def create
       @countries = Country.all
       @province = Province.new(province_params)
-  
-      if @province.save
-        redirect_to @province
+      @province.save
+      respond_to do |format|  
+        format.js { render 'provinces/create_result'}
       end
-  end
+    end
 
     def destroy
-      @country = Country.find(params[:country_id])
-      @province = @country.provinces.find(params[:id])
+      @province = Province.find(params[:id])
+      @country = Country.find(@province.country_id)
       @province.destroy
-      redirect_to country_path(@country)
+      respond_to do |format|  
+        format.js { render 'provinces/destroy_result'}
+      end
+      #redirect_to provinces_path
     end
 
     private
     def province_params
-        params.require(:province).permit(:name)
+        params.require(:province).permit(:name, :country_id)
     end
 
 end
