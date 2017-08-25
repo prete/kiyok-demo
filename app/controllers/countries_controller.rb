@@ -16,8 +16,8 @@ class CountriesController < ApplicationController
     def create
         @country = Country.new(country_params)
         @province = Province.new
-        
-        if @country.save && params[:redirect]=="1"
+
+        if @country.save && params[:redirect]=="true"
           redirect_to countries_path
         else
           respond_to do |format|  
@@ -26,12 +26,11 @@ class CountriesController < ApplicationController
         end  
     end
   
-    def edit
-      @country = Country.find(params[:id])
-    end
-  
     def update
       @country = Country.update(params[:id], country_params)
+      respond_to do |format|  
+        format.js { render 'countries/edit_result'}
+      end
     end
     
     def destroy

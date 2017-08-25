@@ -16,7 +16,9 @@ class ProvincesController < ApplicationController
 
     def update
       @province = Province.update(params[:id], province_params)
-      @country = Country.find(@province.country_id)
+      respond_to do |format|  
+        format.js { render 'provinces/edit_result'}
+      end
     end
 
     def create

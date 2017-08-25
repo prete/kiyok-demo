@@ -9,17 +9,17 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">New Province</h4>
         </div>      
-        <%= form_for(@province,:html=>{:id=>"add-province-form-dialog",:multipart => true,:remote=>true}) do |f| %>
+        <%= form_for(Province.new,:html=>{:id=>"add-province-form-dialog",:multipart => true,:remote=>true}) do |f| %>
         <div class="modal-body">
             <div id="validate-province-errors" class="form-group"></div>
             <div class="form-group">
-            <%= f.label 'Country' %>
-            <%= f.select :country_id, class: "form-control", :selected => @country.id do %>
-                <% @countries.each do |c| -%>
-                    <%= content_tag(:option, c.name, value: c.id) %>
+                <%= f.label :country %>
+                <% if @country.nil? %>
+                    <%= f.select :country_id, options_from_collection_for_select(@countries, 'id', 'name'), :class => "form-control" %>
+                <% else %>
+                    <%= f.select :country_id, options_from_collection_for_select(@countries, 'id', 'name', @country.id), :class => "form-control" %>
                 <% end %>
-            <% end %>
-            </div>            
+            </div>         
             <div class="form-group">
                 <%= f.label :name %>
                 <%= f.text_field :name, class: "form-control", placeholder: "Province name" %>

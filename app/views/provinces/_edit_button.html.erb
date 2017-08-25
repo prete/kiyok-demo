@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    function beforeOpeninigEditDialog(){
+        $("#province_name").val("");
+        $("#validate-province-errors").html("");
+    }
+</script>
+<%= link_to raw('<i class="fa fa-fw fa-edit"></i>&nbsp;')+title, '#', :class => "btn btn-xs btn-primary", :onclick=>"beforeOpeninigEditDialog()", data: {toggle: "modal", target: "#edit-province-modal-"+province.id.to_s} %>
+<%= render 'provinces/edit_dialog', province: province %>

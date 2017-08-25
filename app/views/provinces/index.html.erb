@@ -6,7 +6,7 @@
     <%= render 'provinces/add_button', title: "add a province", province: Province.new %> or <%= render 'countries/add_button', title: "add a country", country: Country.new %>?</strong>
   </div>  
 <% else %>
-  <%= render 'countries/add_button', title: 'add country', country: Country.new, redirect: false %>
+  <%= render 'countries/add_button', title: 'add country', redirect: false%>
   <%= render 'provinces/add_button', title: 'add province', province: Province.new %>
 <% end %>
 

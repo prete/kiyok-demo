@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    function beforeOpeninigEditDialog(){
+        $("#country_name").val("");
+        $("#validate-country-errors").html("");
+    }
+</script>
+<%= link_to raw('<i class="fa fa-fw fa-edit"></i>&nbsp;')+title, '#', :class => "btn btn-xs btn-primary", :onclick=>"beforeOpeninigEditDialog()", data: {toggle: "modal", target: "#edit-country-modal-"+ country.id.to_s} %>
+<%= render 'countries/edit_dialog', country: country%>

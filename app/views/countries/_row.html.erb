@@ -1,0 +1,8 @@
+<tr>
+    <td><%= country.name %></td>
+    <td class="text-center" style="width:20%">
+        <%= link_to raw('<i class="fa fa-fw fa-globe"></i>&nbsp;show'), country_path(country), :class=>"btn btn-xs btn-success" %>
+        <%= render 'countries/edit_button', title: 'edit', :country => country %>
+        <%= link_to raw('<i class="fa fa-fw fa-trash"></i>&nbsp;delete'), country_path(country), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-xs btn-danger"%>
+    </td>
+</tr>

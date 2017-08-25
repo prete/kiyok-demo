@@ -26,4 +26,5 @@ ActiveRecord::Schema.define(version: 20170821212553) do
     t.index ["country_id"], name: "index_provinces_on_country_id"
   end
 
+  add_foreign_key "provinces", "countries"
 end

@@ -6,4 +6,4 @@
 </script>
 
 <%= link_to raw('<i class="fa fa-fw fa-plus"></i>&nbsp;')+title, '#', :class => "btn btn-primary", :onclick=>"beforeOpeninigAddDialog()", data: {toggle: "modal", target: "#new-country-modal"} %>
-<%= render 'countries/add_dialog', redirect: true  %>
+<%= render 'countries/add_dialog', redirect: redirect  %>

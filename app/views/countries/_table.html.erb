@@ -1,0 +1,9 @@
+<table class="table table-responsive table-striped table-hover table-bordered">
+  <tr>
+    <th>Country name</th>
+    <th>Options</th>
+  </tr>
+  <% @countries.each do |country| %>
+    <%= render 'countries/row', country: country %>    
+  <% end %>
+</table>

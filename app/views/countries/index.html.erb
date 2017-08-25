@@ -2,20 +2,12 @@
  
 <% if @countries.length == 0 %>
   <div class="alert alert-info">
-    <strong>There are no countries yet, why don't you <%= render 'add_button', title: 'add', country: Country.new %> one?</strong>
+    <strong>There are no countries yet, why don't you <%= render 'add_button', title: 'add', redirect: true %> one?</strong>
   </div>  
 <% else %>
-  <%= render 'countries/add_button', title: 'add country', country: Country.new, reload: true %>
+  <%= render 'countries/add_button', title: 'add country', redirect: true %>
 <% end %>
 
 <% if @countries.length != 0 %>
-<table class="table table-responsive table-striped table-hover table-bordered">
-  <tr>
-    <th>Country name</th>
-    <th>Options</th>
-  </tr>
-  <% @countries.each do |country| %>
-    <%= render 'countries/item', country: country %>    
-  <% end %>
-</table>
+  <%= render 'table' %>
 <% end %>

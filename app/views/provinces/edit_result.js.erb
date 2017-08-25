@@ -1,0 +1,8 @@
+<% if @province.errors.any? %>
+    $("#validate-province-errors").html('<div class="alert alert-danger  alert-dismissable"><strong><%= pluralize(@province.errors.count, "error") %> prohibited this country from being saved!</strong><ul><% @province.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul></div>');
+<%else%>
+    $("#edit-province-modal").modal("hide");
+    $('#notification-message').html("Province <%= @province.name %> edited successfuly");
+    $('#notification-dialog').modal("show");
+    location.reload();
+<% end %>
